@@ -43,25 +43,37 @@ function Modal(props){
   );
 }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      mounted: false
+    }
+  }
+
+  componentDidMount(){
+    this.setState({
+      mounted: true
+    });
+  }
+
+  handleSubmit(e){
+    e.preventDefault();
+    this.setState({
+      mounted: false
+    });
+  }
+
+  render(){
+    const child;
+    if (this.state.mounted){
+      child = (<Modal onSubmit={this.handleSubmit} />)
+    }
+    return (
+      <div className="App">
+      </div>
+    );
+  }
 }
 
 export default App;
