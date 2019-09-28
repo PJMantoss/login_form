@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 function Input(props){
 		return (
@@ -65,12 +65,20 @@ class App extends React.Component {
   }
 
   render(){
-    const child;
+    let child = ""
+
     if (this.state.mounted){
       child = (<Modal onSubmit={this.handleSubmit} />)
     }
     return (
       <div className="App">
+         <ReactCSSTransitionGroup 
+					transitionName="example"
+					transitionEnterTimeout={500}
+					transitionLeaveTimeout={300}
+         >
+						{child}
+				</ReactCSSTransitionGroup>
       </div>
     );
   }
