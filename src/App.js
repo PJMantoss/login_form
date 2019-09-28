@@ -21,7 +21,6 @@ function Modal(props){
   return (
     <div className="Modal">
       <form 
-        onSubmit={this.props.onSubmit}
         className="ModalForm">
         <Input
           id="name"
@@ -49,6 +48,7 @@ class App extends React.Component {
     this.state = {
       mounted: false
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount(){
