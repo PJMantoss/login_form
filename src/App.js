@@ -88,7 +88,7 @@ function Input(props){
 					  transitionLeaveTimeout={300}
 		   >
 						  {child}
-				  </ReactCSSTransitionGroup>
+			</ReactCSSTransitionGroup>
 		</div>
 	  );
 	}
